@@ -1,0 +1,58 @@
+
+
+2,2,5
+norm = 14
+brute = 14
+
+
+2,3,7
+norm = 5
+brute = 5
+
+
+
+
+4,6,2
+norm = 8
+brute = 4
+
+
+
+3,7,1
+norm = 8
+brute = 13
+
+
+
+
+4,7,2
+norm = 9
+brute = 4
+
+
+
+3,6,1
+norm = 9
+brute = 5
+
+1,10,1
+norm = 15
+brute = 15
+
+
+2,10,1
+norm = 14
+brute = 14
+
+
+
+
+
+
+
+
+
+
+10,2,1
+norm = 14
+brute = 14
