@@ -164,15 +164,84 @@ void sieve()
 
 // code starts from here
 //const int MAX=1e5+10,MOD=1e9+7;
+int go(int r,int c){
+    if(r==1){
+        return c/2;
+    }
+    if(c==1){
+        return r/2;
+    }
+    if(r==2&&c==2){
+        return 2;
+    }
+    if(r==3){
+        return c;
+    }
+    if(c==3){
+        return r;
+    }
+    int q = 0,res=0;
+    if(r>=c){
+        q=r/3;
+        q=q*3;
+        r-=q;
+        res=c+go(r,c);
+    }
+    else{
+        q=c/3;
+        c-=q*3;
+        res=r+go(r,c);
+    }
+    return res;
+}
+int fun(int n, int m) {
+    int r = n;
+    int c = m - 1;
+    c /= 2;
+    int res = r * c;
+    if (n == 2) {
+        res = res + 1;
+    }
+    else {
+        res = res + (n / 2);
+    }
+    return res;
+}
 void solve() {
-	ll u,v;cin>>u>>v;
-	cout<<(-u*u)<<" "<<(v*v)<<endl;
+    int n, m;
+    cin >> n >> m;
+    if (n > m)swap(n, m);
+
+    // if (n == 1) {
+    //     cout << m / 2 << "\n";
+    // }
+    // else if (n == 2 && m == 2) {
+    //     cout << "2\n";
+    // }
+    // else {
+    //     if (m & 1) {
+    //         int n1 = n, m1 = m;
+    //         m1 /= 2;
+    //         int n2 = n, m2 = m;
+    //         n2 /= 2;
+    //         int res = n1 * m1;
+    //         res = min(res, n2 * m2);
+    //         cout << res << endl;
+    //     }
+    //     else {
+    //         cout << min(fun(n, m), fun(m, n)) << endl;
+    //     }
+    // }
+    cout<<go(n,m)<<endl;
 }
 int main ()
 {
+#ifndef ONLINE_JUDGE
+   // freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+#endif
 
-
-    flash;
+    //flash;
 
     int t = 1; cin >> t;
     for (int tc = 1; tc <= t; tc++) {

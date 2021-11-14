@@ -165,21 +165,41 @@ void sieve()
 // code starts from here
 //const int MAX=1e5+10,MOD=1e9+7;
 void solve() {
-	ll u,v;cin>>u>>v;
-	cout<<(-u*u)<<" "<<(v*v)<<endl;
 }
 int main ()
 {
+    int u,v;cin>>u>>v;
+    // for (int u = 1; u <= 20; u++) {
+    //     for (int v = 1; v <= 20; v++) {
+            int good=0,res_y=0,res_x=0;
+            for (int i = -400; i <= 400; i++) {
+                for (int j = -400; j <= 400; j++) {
+                    int x = i;
+                    int y = j;
+                    if (!i or !j)continue;
+                    if (x % i == 0 && y % j == 0 && (x + y) % (u + v) == 0 && (x / u + y / v) == (x + y) / (u + v)) {
+                        
+                        if(x==-min(u,v)*min(u,v) && y==max(u,v)*max(u,v)){
+                            good=1;
+                            break;
+                        }
 
+                            res_x=x;
+                            res_y=y;
+                        cout<<x<<" "<<y<<endl;
+                    }
+                }
+                if(good)break;
+            }
+    //         if(good==0){
+    //             cout<<"bad! ";
+    //             cout<<u<<" "<<v<<endl;
+    //             cout<<res_x<<" "<<res_y<<endl;
+    //         }
 
-    flash;
+    //     }
 
-    int t = 1; cin >> t;
-    for (int tc = 1; tc <= t; tc++) {
-        //cout << "Case #" << tc << ": ";
-        //cout << "Case " << tc << ": ";
-        solve();
-    }
+    // }
 
     return 0;
 }

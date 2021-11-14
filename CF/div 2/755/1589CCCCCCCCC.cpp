@@ -165,12 +165,27 @@ void sieve()
 // code starts from here
 //const int MAX=1e5+10,MOD=1e9+7;
 void solve() {
-	ll u,v;cin>>u>>v;
-	cout<<(-u*u)<<" "<<(v*v)<<endl;
+	int n;cin>>n;
+	vector<int>a(n),b(n);
+	for(int i=0;i<n;i++)
+		cin>>a[i];
+	for(int i=0;i<n;i++)
+		cin>>b[i];
+	sort(b.begin(),b.end());
+	sort(a.begin(),a.end());
+	int ok=0;
+	for(int i=0;i<n;i++){
+		if( abs(a[i]-b[i])<=1)ok++;
+	}
+	if(ok==n)cout<<"YES\n";
+	else cout<<"NO\n";
 }
 int main ()
 {
-
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+#endif
 
     flash;
 

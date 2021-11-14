@@ -165,12 +165,50 @@ void sieve()
 // code starts from here
 //const int MAX=1e5+10,MOD=1e9+7;
 void solve() {
-	ll u,v;cin>>u>>v;
-	cout<<(-u*u)<<" "<<(v*v)<<endl;
+    //cout<<"!\n";
+    int n, m; cin >> n >> m;
+    int mx = -1, wheel_node = 0, wheel_edge = 0;
+    for (int i = n - 1; i >= 0; i--) {
+        int rem_edge = m - i;
+        int rem_node = n - i;
+        int max_edge = rem_node * (rem_node - 1) / 2;
+        if (rem_edge <= max_edge) {
+            if (mx < i) {
+                mx = i;
+                wheel_node = rem_node;
+                wheel_edge = rem_edge;
+            }
+        }
+    }
+    //cout<<mx<<' '<<wheel_node<<' '<<wheel_edge<<endl;
+
+    for (int i = 1; i <= wheel_node; i++) {
+        if (wheel_edge == 0)break;
+        for (int j = i + 1; j <= wheel_node; j++) {
+
+            if (wheel_edge == 0)break;
+            cout << i << " " << j << endl;
+            wheel_edge--;
+        }
+    }
+    if (mx) {
+        mx--;
+        cout << 1 << " " << n << endl;
+        while (mx > 0) {
+            cout << n << " " << n - 1 << endl;
+            n--;
+            mx--;
+        }
+
+    }
+    cout << endl;
 }
 int main ()
 {
-
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+#endif
 
     flash;
 
