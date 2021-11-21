@@ -1,30 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define endl "\n"
-typedef long long int ll;
 const int MAX = 1e6 + 10;
-void solve() {
+int main() {
 	int m; cin >> m;
-	vector<int>bad(MAX);
+	vector<int>bad(MAX), map(MAX), v;
 	for (int i = 0; i < m; i++) {
 		int x; cin >> x;
-		
+		if (map[x] == 0) {
+			v.push_back(x);
+		}
+		map[x]++;
+	}
+	for (int x : v) {
 		for (int j = x; j < MAX; j += x)
-			bad[j]++;
+			bad[j] += map[x];
 	}
 	int q; cin >> q;
 	while (q--) {
 		int x; cin >> x;
 		cout << m - bad[x] << endl;
 	}
-}
-int  main ()
-{
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-
-	int t = 1; //cin>>t;
-	for (int tc = 1; tc <= t; tc++)
-		solve();
 	return 0;
 }
