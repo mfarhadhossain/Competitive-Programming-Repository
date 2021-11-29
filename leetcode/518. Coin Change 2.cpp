@@ -12,6 +12,7 @@ public:
     }
     int change(int amount, vector<int>& coins) {
         memset(dp, -1, sizeof dp);
+        
         int ret = go(0, amount, coins);
         //if(ret==1e9)ret=-1;
         return ret;
