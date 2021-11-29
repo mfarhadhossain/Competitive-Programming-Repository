@@ -5,9 +5,7 @@ const int MOD = 998244353;
 void solve() {
 	int n;cin>>n;
 
-	for(int i=1;i<=n;i++){
-
-	}
+	
 }
 int  main ()
 {
