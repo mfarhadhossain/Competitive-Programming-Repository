@@ -4,20 +4,19 @@ using namespace std;
 typedef long long int ll;
 const int MAX = 1e5 + 10, MOD = 1e9 + 7;
 void solve() {
-	string ch1,ch2;
-	cin>>ch1>>ch2;
-	if(ch1==ch2){
-		cout<<ch1<<endl;
-		return;
+	int n;//cin>>n;
+	string s,t;cin>>s>>t;
+	n=s.size();
+	map<int,int>m;
+	for(int i=0;i<n;i++){
+		int d = s[i]-t[i];
+		m[d]=1;
 	}
-	if(ch1=="R" or ch2=="R"){
-		cout<<"R\n";
-	}
-	else if(ch1=="B" or ch2=="B"){
-		cout<<"B\n";
+	if(m.size()==1){
+		cout<<"Yes\n";
 	}
 	else{
-		cout<<"G\n";
+		cout<<"No\n";
 	}
 }
 int  main ()
